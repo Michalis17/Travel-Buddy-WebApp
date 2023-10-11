@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="..\styles\main.css">
 </head>
 <!-- Grid layout -->
+
 <body class="grid-container">
   <div class="backdrop"></div>
   <!-- navbar component -->
@@ -23,9 +24,9 @@
         <!-- Toggle button icon -->
         <!-- <span class="navbar-toggler-icon"></span> -->
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="12.5" y="11.25" width="20" height="2.5" rx="1.25" fill="white"/>
-          <rect x="7.5" y="18.75" width="25" height="2.5" rx="1.25" fill="white"/>
-          <rect x="12.5" y="26.25" width="20" height="2.5" rx="1.25" fill="white"/>
+          <rect x="12.5" y="11.25" width="20" height="2.5" rx="1.25" fill="white" />
+          <rect x="7.5" y="18.75" width="25" height="2.5" rx="1.25" fill="white" />
+          <rect x="12.5" y="26.25" width="20" height="2.5" rx="1.25" fill="white" />
         </svg>
       </button>
       <!-- Offcanvas navbar links and close button  -->
@@ -45,25 +46,80 @@
       </div>
     </div>
   </nav>
-
+  <!-- Hero section -->
   <header>
     <h1>Hello World</h1>
     <h3>time to travel</h3>
     <p>below you will find the input fields for the travel buddy app</p>
   </header>
 
+
+
+  <!-- half sun svg  -->
+  <div class="half-sun">
+    <svg width="100%" height="100%" viewBox="0 0 740 494" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.4" filter="url(#filter0_f_869_10395)">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M616 370C616 234.138 505.862 124 370 124C234.138 124 124 234.138 124 370H616Z" fill="#FFBD07" />
+      </g>
+      <g filter="url(#filter1_if_869_10395)">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M558 370C558 266.17 473.83 182 370 182C266.17 182 182 266.17 182 370H558Z" fill="#FFC733" />
+      </g>
+      <defs>
+        <filter id="filter0_f_869_10395" x="0" y="0" width="740" height="494" filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="62" result="effect1_foregroundBlur_869_10395" />
+        </filter>
+        <filter id="filter1_if_869_10395" x="174" y="174" width="392" height="204" filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha" />
+          <feOffset dy="8" />
+          <feGaussianBlur stdDeviation="8" />
+          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_869_10395" />
+          <feGaussianBlur stdDeviation="4" result="effect2_foregroundBlur_869_10395" />
+        </filter>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Wave svg -->
+  <div class="waves">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 200" fill="none">
+      <path
+        d="M0 114.54V0H1440V176.378C1409.5 169.833 1361.5 144.094 1229 156.72C1112.09 167.859 1129.5 199.263 961 199.99C792.5 200.718 847 160.356 714.5 150.538C582 140.72 529.5 153.811 435.5 160.356C341.5 166.901 255.5 163.992 198 134.175C152 110.322 46.8333 111.146 0 114.54Z"
+        fill="#DCF1FF" />
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 200" fill="none">
+      <path
+        d="M0 114.54V0H1440V176.378C1409.5 169.833 1361.5 144.094 1229 156.72C1112.09 167.859 1129.5 199.263 961 199.99C792.5 200.718 847 160.356 714.5 150.538C582 140.72 529.5 153.811 435.5 160.356C341.5 166.901 255.5 163.992 198 134.175C152 110.322 46.8333 111.146 0 114.54Z"
+        fill="#306EAD" />
+    </svg>
+  </div>
+
+
+
+  <!-- Functional section of webpage -->
   <main>
     <!-- form for user input of location and departure date -->
     <form id="myForm">
-    
-        <label for="location">Where is your next trip to?</label>
-        <input type="text" name="location" id="location">
-      
 
-        <label for="input-date">Departing:</label>
-        <!-- the min attribute must be based on the current time -->
-        <input type="datetime-local" id="input-date" name="input-date" required>
-      
+      <label for="location">Where is your next trip to?</label>
+      <input type="text" name="location" id="location">
+
+
+      <label for="input-date">Departing:</label>
+      <!-- the min attribute must be based on the current time -->
+      <input type="datetime-local" id="input-date" name="input-date" required>
+
       <button type="submit" class="btn btn-primary btn-lg" value="Submit">submit</button>
     </form>
     <!-- countdown component  -->
@@ -82,16 +138,18 @@
       </div>
     </div>
   </main>
+  <!-- Footer -->
   <footer>
     <p>Developed by Michalis Michaelides</p>
   </footer>
+  <!-- JavaScript files/scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
     crossorigin="anonymous"></script>
-    <script type="module" src="formHandler.js"></script>
+  <script type="module" src="formHandler.js"></script>
 </body>
 
 </html>
