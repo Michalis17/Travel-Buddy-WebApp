@@ -13,15 +13,15 @@
     align-items: center;
     grid-template-columns: 1fr;
     /* Single column layout for mobile */
-    grid-template-rows: 1fr 2fr auto 2rem;
+    grid-template-rows:5rem 10rem auto 2rem;
     /* Auto-sized header and footer, 1fr for main content */
     grid-template-areas:
         "nav"
         "header"
         "main"
         "footer";
+    grid-gap: 10px;
     min-height: 100vh;
-
 }
 
 .navbar {
@@ -62,16 +62,37 @@ header {
 .half-sun {
     position: absolute;
     z-index: -1;
-    width: 100%;
+    top: 189px;
 
 }
 
 .waves {
-    width: 100%;
     position: absolute;
     z-index: -1;
+    width: 100%;
+    top: 200px;
+    height: 200px;
+}
+#wave1 {
+    position: relative;
+    z-index: 1;
+
 }
 
+#wave2 {
+    position: relative;
+    top: 4px;
+    z-index: 0;
+}
+
+/* TODO: fix waves */
+#wave3 {
+    position: relative;
+    z-index: -1;
+    transform: rotateX('180'); 
+    bottom: 27px;
+    background-color: #DCF1FF;
+}
 .main {
     grid-area: main;
     display: flex;

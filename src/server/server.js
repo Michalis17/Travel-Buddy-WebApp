@@ -2,9 +2,11 @@
 const projectData = {};
 
 // Require Express to run server and routes
-const express = require('express');
+
+// const dotenv = require('dotenv'); THIS CODE IS TO HIDE API KEY
 
 // Start up an instance of app
+const express = require('express');
 const app = express();
 
 // Dependencies
@@ -20,7 +22,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static('../dist'));
 
 // Setup Server
 const port = 8000;
@@ -30,18 +32,18 @@ const server = app.listen(port, () => {
 });
 
 // POST route to add data to projectData 
-app.post('/addData', function (req, res) {
-    const newEntry = {
-        date: req.body.date,
-        temp: req.body.temp,
-        content: req.body.content
-    };
+// app.post('/addData', function (req, res) {
+//     const newEntry = {
+//         date: req.body.date,
+//         temp: req.body.temp,
+//         content: req.body.content
+//     };
 
-    projectData[0] = newEntry;
-    console.log(projectData);
-});
+//     projectData[0] = newEntry;
+//     console.log(projectData);
+// });
 
-// GET route to send projectData to client
-app.get('/all', function (req, res) {
-    res.send(projectData);
-});
+// // GET route to send projectData to client
+// app.get('/all', function (req, res) {
+//     res.send(projectData);
+// });

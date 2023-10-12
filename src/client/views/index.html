@@ -92,16 +92,14 @@
 
   <!-- Wave svg -->
   <div class="waves">
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 200" fill="none">
-      <path
-        d="M0 114.54V0H1440V176.378C1409.5 169.833 1361.5 144.094 1229 156.72C1112.09 167.859 1129.5 199.263 961 199.99C792.5 200.718 847 160.356 714.5 150.538C582 140.72 529.5 153.811 435.5 160.356C341.5 166.901 255.5 163.992 198 134.175C152 110.322 46.8333 111.146 0 114.54Z"
-        fill="#DCF1FF" />
-    </svg>
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 200" fill="none">
+    <svg id="wave1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 200" fill="none">
       <path
         d="M0 114.54V0H1440V176.378C1409.5 169.833 1361.5 144.094 1229 156.72C1112.09 167.859 1129.5 199.263 961 199.99C792.5 200.718 847 160.356 714.5 150.538C582 140.72 529.5 153.811 435.5 160.356C341.5 166.901 255.5 163.992 198 134.175C152 110.322 46.8333 111.146 0 114.54Z"
         fill="#306EAD" />
+    </svg>
+  
+    <svg id="wave2" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 200" fill="none">
+      <path d="M0 114.54V0H1440V176.378C1409.5 169.833 1361.5 144.094 1229 156.72C1112.09 167.859 1129.5 199.263 961 199.99C792.5 200.718 847 160.356 714.5 150.538C582 140.72 529.5 153.811 435.5 160.356C341.5 166.901 255.5 163.992 198 134.175C152 110.322 46.8333 111.146 0 114.54Z" fill="#DCF1FF"/>
     </svg>
   </div>
 
@@ -111,31 +109,22 @@
   <main>
     <!-- form for user input of location and departure date -->
     <form id="myForm">
-
+      <!-- Location Input -->
       <label for="location">Where is your next trip to?</label>
       <input type="text" name="location" id="location">
-
-
+      <!-- Date and time input -->
       <label for="input-date">Departing:</label>
-      <!-- the min attribute must be based on the current time -->
       <input type="datetime-local" id="input-date" name="input-date" required>
-
+      <!-- submit button -->
       <button type="submit" class="btn btn-primary btn-lg" value="Submit">submit</button>
     </form>
+
+
+
+
     <!-- countdown component  -->
     <div class="trips">
-      <div id="trip1" class="trip-card">
-        000000
-      </div>
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+      
     </div>
   </main>
   <!-- Footer -->
@@ -149,7 +138,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
     crossorigin="anonymous"></script>
-  <script type="module" src="formHandler.js"></script>
+  <script type="module" src="../js/formHandler.js"></script>
 </body>
 
 </html>
