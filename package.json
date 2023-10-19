@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/server/index.js",
-    "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack-dev-server --config webpack.dev.js --open"
+    "start": "node src/server/server.js",
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack.dev.js --open"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +37,8 @@
     "terser-webpack-plugin": "^5.3.9",
     "webpack-dev-server": "^4.15.1",
     "workbox-webpack-plugin": "^7.0.0",
-    "autoprefixer": "^10.4.16"
+    "autoprefixer": "^10.4.16",
+    "sass": "^1.68.0",
+    "postcss-loader": "^7.3.3"
   }
 }
