@@ -1,3 +1,5 @@
+// TODO: set up all apis that will be used and CLEAN UP CODE   
+
 // Pixabay API Key
 const picsApiKey = '39780494-3f7dac4e6c4c70f23aa160a44';
 // example url https://pixabay.com/api/?key=39780494-3f7dac4e6c4c70f23aa160a44&q=yellow+flowers&image_type=photo

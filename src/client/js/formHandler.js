@@ -1,3 +1,6 @@
+// TODO: clean up and split up code 
+
+
 // Setting calander input to accept future dates only
 const currentTime = new Date();
 const calanderInput = document.getElementById("input-date");
