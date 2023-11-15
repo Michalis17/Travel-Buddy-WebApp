@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 const path = require("path");
 const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
@@ -15,11 +15,11 @@ module.exports = {
     // libraryTarget: "var",
     // library: "Client",
   },
-  devServer: {
-    static: path.resolve(__dirname, 'dist'),
-    port: 8080,
-    hot: true
-  },
+  // devServer: {
+  //   static: path.resolve(__dirname, "dist"),
+  //   port: 8080,
+  //   hot: false,
+  // },
   devtool: "source-map",
   module: {
     rules: [
@@ -34,27 +34,25 @@ module.exports = {
         use: [
           {
             // extracts css for each js file that includes css
-            loader: miniCssExtractPlugin.loader
+            loader: miniCssExtractPlugin.loader,
           },
           {
             // Interprets `@import` and `url()` like `import/require()` and will resolve them
-            loader: 'css-loader'
+            loader: "css-loader",
           },
           {
             // Loader for webpack to process CSS with PostCSS
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [
-                  autoprefixer
-                ]
-              }
-            }
+                plugins: [autoprefixer],
+              },
+            },
           },
           {
             // Loads a SASS/SCSS file and compiles it to CSS
-            loader: 'sass-loader'
-          }
+            loader: "sass-loader",
+          },
         ],
       },
     ],
@@ -65,7 +63,7 @@ module.exports = {
       filename: "./index.html",
     }),
 
-    new miniCssExtractPlugin(), 
+    new miniCssExtractPlugin(),
 
     new CleanWebpackPlugin({
       // Simulate the removal of files

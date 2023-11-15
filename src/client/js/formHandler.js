@@ -1,11 +1,9 @@
 // TODO: clean up and split up code 
-
-
 // Setting calander input to accept future dates only
 const currentTime = new Date();
-const calanderInput = document.getElementById("input-date");
+const departingInput = document.getElementById("input-date");
+const locationInput = document.getElementById("location");
 const form = document.getElementById('myForm');
-
 
 const setDateLimit = (timeLimit) => {
   let nowMinute = timeLimit.getMinutes();
@@ -25,12 +23,90 @@ const setDateLimit = (timeLimit) => {
   }
   const nowYear = timeLimit.getFullYear();
 
-  calanderInput.setAttribute(
+  departingInput.setAttribute(
     "min",
     `${nowYear}-${nowMonth}-${nowDate} ${nowHour}:${nowMinute}`
   );
 };
 setDateLimit(currentTime);
+
+class Trip {
+  constructor(location, departure) {
+    this.location = location;
+    this.departure = departure;
+  }
+}
+
+let allTrips = JSON.parse(localStorage.getItem("trips")) || [];
+// console.log(allTrips);
+// Check if trips were retrieved
+if (allTrips.length === 0) {
+  console.log("There are no trips stored in local storage!");
+}
+
+
+
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  saveTrip(new Trip(locationInput.value, departingInput.value));
+  location.reload();
+});
+//
+function saveTrip(tripObject) {
+  // Push the new trip object into the array
+  allTrips.push(tripObject);
+  // Stores the updated trips array in local storage
+  localStorage.setItem("trips", JSON.stringify(allTrips));
+}
+
+function removeTrip(tripID) {
+  // removes trip object from array based on the index
+  const updatedTripsArray = allTrips
+    .slice(0, tripID)
+    .concat(allTrips.slice(tripID + 1));
+  localStorage.removeItem("trips");
+  localStorage.setItem("trips", JSON.stringify(updatedTripsArray));
+}
+
+function displayTrips(tripsArray) {
+  tripsArray.forEach((item, index) => {
+    // Access item and optionally index
+    form.insertAdjacentHTML(
+      "afterend",
+      `<h1>${index}</h1>
+    <p>${item.location}</p>
+    <p>${item.departure}</p>
+    <button id='${index}' class='delete'>Delete Me</button>`
+    );
+  });
+}
+
+displayTrips(allTrips);
+const allDeleteButtons = document.getElementsByClassName("delete");
+
+for (const item of allDeleteButtons) {
+  // Access item
+  item.addEventListener("click", () => {
+    const confirmUser = confirm("Are you sure you want to delete this trip?");
+    if (confirmUser === true) {
+      removeTrip(item.id);
+      location.reload();
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const countdown = (date) => {
