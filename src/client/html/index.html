@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Buddy</title>
+  <link rel="icon" type="image/x-icon" href="./travel-icon.png">
+</head>
+
+<body>
+  <!-- bootstrap navbar  -->
+  <nav class="navbar fixed-top">
+    <div class="container-fluid">
+      <!-- Navbar logo/link -->
+      <a class="navbar-brand logo" href="#">Travel Buddy</a>
+      <!-- Navbar Toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <!-- Toggle button icon -->
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="12.5" y="11.25" width="20" height="2.5" rx="1.25" fill="black" />
+          <rect x="7.5" y="18.75" width="25" height="2.5" rx="1.25" fill="black" />
+          <rect x="12.5" y="26.25" width="20" height="2.5" rx="1.25" fill="black" />
+        </svg>
+      </button>
+      <!-- Offcanvas navbar links and close button  -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+          id="closeButton"></button>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <main class="hero">
+    <!-- Add trip  modal button -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add
+      trip</button>
+    <!-- Diplaying a loader when waiting for a response from the server -->
+    <span id="loader"></span>
+    <!-- Any trips saved in local storage will be populated here  -->
+    <div id="trips"></div>
+  </main>
+
+
+
+  <!-- Modal Popup for trip input fields -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Your Trip:</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <!-- Form Inputs -->
+          <form id="myForm">
+
+            <div class="input-box">
+              <input type="text" id="searchInput" placeholder="Search..." required>
+              <div id="optionsList" class="options-list">
+                <!-- Options will be dynamically added here -->
+              </div>
+            </div>
+
+            <div class="input-box">
+              <label for="input-date" class="labelline">Departing:</label>
+              <input type="datetime-local" id="input-date" name="input-date" required>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button id="submitTrip" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add Trip</button>
+
+        </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Service Workers -->
+
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+</body>
+
+</html>
