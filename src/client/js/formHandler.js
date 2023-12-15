@@ -1,3 +1,5 @@
+import { jsPDF } from "jspdf";
+import { countdown } from "./countdown";
 export function userInputToServer(inputObject) {
   // add code to display loader 
   document.getElementById("loader").style.display = "block";
@@ -25,3 +27,56 @@ export function userInputToServer(inputObject) {
       });
   });
 }
+
+export function saveTripObj(tripObj, arrayTrips) {
+  arrayTrips.push(tripObj);
+  localStorage.setItem("trips", JSON.stringify(arrayTrips));
+}
+
+export function removeTrip(tripID, arrayTrips) {
+  // removes trip object from array based on the index
+  const updatedTripsArray = arrayTrips.filter((trip, index) => index !== tripID);
+  localStorage.removeItem("trips");
+  localStorage.setItem("trips", JSON.stringify(updatedTripsArray));
+}
+
+export const makeTripPDF = (departing, city, country) => {
+  // Create a new jsPDF instance
+  const doc = new jsPDF({
+    orientation: 'p',
+    unit: 'px',
+    format: 'a4'
+   });
+
+  // Add content to the PDF
+  doc.text(`Trip Details
+  Dear Sexy Human,
+  
+  We are delighted to provide you with the essential details 
+  of your upcoming trip to ${country} - ${city}.
+
+  Trip Information:
+  // Destination: ${country} - ${city} 
+  // Date of Departure: ${departing}
+  
+  Safe travels!
+  
+  Warm regards,
+  
+  Your Travel Buddy`, 5, 15, {align: 'left', renderingMode: "fill"});
+
+  // Save the PDF
+  doc.save("sample.pdf");
+}
+
+
+export const displayCountDown = (arrayTrips) => {
+  const allCountdownForTrips = document.getElementsByClassName("countdown");
+  let i = 0;
+
+  for (const item of allCountdownForTrips) {
+    const countdownResults = countdown(arrayTrips[i].departure);
+    item.innerText = `${countdownResults.day} : ${countdownResults.hour} : ${countdownResults.minute} : ${countdownResults.second}`;
+    i++;
+  }
+};
