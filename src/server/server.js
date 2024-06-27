@@ -1,6 +1,7 @@
 // TODO test trip class make separate module for use and unit testing 
 // TODO clean up comments 
  var Trip = require("./tripClass");
+ const worldCities = require('../server/citiesData.json');
 // Start up an instance of app
 const express = require("express");
 const app = express();
@@ -43,41 +44,42 @@ const { Dataset } = require("data.js");
 
 const url = "https://datahub.io/core/world-cities/datapackage.json";
 
-const worldCitiesDataSet = async () => {
-  try {
-    const dataset = await Dataset.load(url);
-    const dataObjects = [];
+// const worldCitiesDataSet = async () => {
+//   try {
+//     const dataset = worldCities;
+//     const dataObjects = [];
 
-    // Check and process resources if they are in JSON format
-    for (const id in dataset.resources) {
-      const resource = dataset.resources[id];
+//     // Check and process resources if they are in JSON format
+//     for (const id in dataset.resources) {
+//       const resource = dataset.resources[id];
 
-      if (resource._descriptor.format === "json") {
-        const file = resource; // Get the resource
-        const stream = await file.stream(); // Get stream data
-        const buffer = await file.buffer; // Get buffer data
+//       if (resource._descriptor.format === "json") {
+//         const file = resource; // Get the resource
+//         const stream = await file.stream(); // Get stream data
+//         const buffer = await file.buffer; // Get buffer data
 
-        // Assuming data is an array of objects in JSON format
-        const data = JSON.parse(buffer.toString()); // Convert buffer to JSON
-        dataObjects.push(...data); // Push the data objects into the array
-      }
-    }
+//         // Assuming data is an array of objects in JSON format
+//         const data = JSON.parse(buffer.toString()); // Convert buffer to JSON
+//         dataObjects.push(...data); // Push the data objects into the array
+//       }
+//     }
 
-    // Now dataObjects contains an array of objects extracted from the JSON resources
-    return dataObjects; // Return the array of objects for further processing
-  } catch (error) {
-    console.error("Error:", error);
-    return []; // Return an empty array in case of an error
-  }
-};
+//     // Now dataObjects contains an array of objects extracted from the JSON resources
+//     return dataObjects; // Return the array of objects for further processing
+//   } catch (error) {
+//     console.error("Error:", error);
+//     return []; // Return an empty array in case of an error
+//   }
+// };
 
 // TODO refactor this code a bit
 
 app.get("/searchCities", async (req, res) => {
   try {
     // Fetch the world cities data
-    const worldCities = await worldCitiesDataSet();
+    // const worldCities = await worldCitiesDataSet();
     // Send the data as JSON to the client
+    console.log(worldCities);
     res.json(worldCities);
     console.log("SUCCESS: World Cities Array was sent to client");
   } catch (error) {
