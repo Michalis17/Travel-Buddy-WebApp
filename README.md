@@ -9,7 +9,7 @@
 
 
 ## Overview
-This project aims to create a web app that helps users planner their upcoming trips by providing usefull information and storing relevant data. 
+ Travel Buddy was my capstone project for the Udacity Front-End Web Development Nanodegree. The application displays weather information for a user’s trip destination, along with a countdown timer and an image. It features a suggestive search bar that offers city suggestions as the user types and a date input field. Server responses are saved in local storage, ensuring data persists even when the user exits the app. This project involved dynamic DOM manipulation, creating routes to a backend server, integrating external APIs, and using Webpack for development and production builds.
 
 ## Get started using v1.0
 Make sure you have NODE installed on your system because we will be running a local server. 
@@ -17,9 +17,16 @@ Download this repository and navigate to it using your terminal.
 
 Run the following commands:
 `npm i` to instal the dependencies needed to run the app.
+Disclaimer: The production build does not work currently, therefore to demo the application I suggest just using the development build. 
+
+
 Development build:
+
 ```
 npm run server
+```
+In a separate terminial navigate to the travel buddy repo and run the following command.
+```
 npm start
 ```
 Production build:
@@ -34,7 +41,7 @@ This app was developed using HTML, CSS, Javascript and NodeJS. In addition,WebPa
 
 Axios = for making get request to third part APIs on the server
 jspdf = for making a PDF with info about the trip
-Bootstrap = for styling and a navbar component
+Bootstrap = to make it easier to style components
 
 To see a full list of all the depedencies used in this project look at the  _package.json_ file.
 
@@ -49,4 +56,4 @@ The trip card has a functional delete button and doanload pdf button.
 
 ![Place picker search input field demo](./demo2.png)
 
-![Screenshot of Trip card displaying data from server](./demo.png)
+![Screenshot of Trip card displaying data from server](./travel-buddy-img.png)

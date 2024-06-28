@@ -13,10 +13,8 @@ body {
   place-items: center;
   padding-top: 50px;
   row-gap: 15px;
-}
-
-.navbar-nav {
-  font-size: 2.5rem;
+  background: rgb(243,179,59);
+background: radial-gradient(circle, rgba(243,179,59,1) 13%, rgba(25,192,244,1) 57%);
 }
 
 // Search input field 
@@ -38,7 +36,6 @@ body {
 
 // Trips section styles
 #trips {
-  background-color: white;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -47,6 +44,7 @@ body {
 // Trip cards styles
 .card {
   margin: 20px;
+  padding: 12px;
 }
 
 img {
